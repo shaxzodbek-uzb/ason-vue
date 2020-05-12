@@ -1,0 +1,8 @@
+export const state = {
+  category: {
+    id: '',
+    name: '',
+    slug: '',
+  }
+  categories: []
+}

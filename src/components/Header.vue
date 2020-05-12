@@ -49,14 +49,10 @@
             <div class="col-sm-4">
               <div class="middle-list">
                 <ul class="list-unstyled">
-                  <li>
-                    <router-link :to="{ name: 'Home' }">Damen</router-link>
-                  </li>
-                  <li>
-                    <router-link :to="{ name: 'Home' }">Herren</router-link>
-                  </li>
-                  <li>
-                    <router-link :to="{ name: 'Home' }">Kinder</router-link>
+                  <li v-for="item in main_categories" :key="item.id">
+                    <router-link :to="{ name: 'Home' }">
+                      {{ item.title }}
+                    </router-link>
                   </li>
                 </ul>
               </div>
@@ -364,9 +360,9 @@
               ></a>
             </div>
             <div class="col">
-              <a href="#" class="cart-mobile"
-                ><i class="fa fa-shopping-cart" aria-hidden="true"></i
-              ></a>
+              <router-link :to="{ name: 'Cart' }" class="cart-mobile">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </router-link>
             </div>
           </div>
           <!--row-->
@@ -376,9 +372,9 @@
       <div class="header-bottom-mobile">
         <div class="container">
           <ul class="row">
-            <li class="col"><a href="#">Мужчинам</a></li>
-            <li class="col active"><a href="#">Женщинам</a></li>
-            <li class="col"><a href="#">Детям</a></li>
+            <li class="col" v-for="item in main_categories" :key="item.id">
+              <router-link :to="{ name: 'Home' }">{{ item.name }}</router-link>
+            </li>
           </ul>
         </div>
       </div>
@@ -393,12 +389,26 @@
 <script>
 import Login from "./popup/Login.vue";
 import Registration from "./popup/Registration.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Header",
   components: { Login, Registration },
+  computed: {
+    ...mapGetters({ main_categories: "category/getMain" })
+  },
   mounted() {
     window.$(".fancy").fancybox();
+    this.index()
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
+  methods: {
+    ...mapActions({ index: "category/list" })
   }
 };
 </script>
