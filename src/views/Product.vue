@@ -506,7 +506,7 @@
 
 <script>
 export default {
-  name: "Single"
+  name: "Product"
 };
 </script>
 

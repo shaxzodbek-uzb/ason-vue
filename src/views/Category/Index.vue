@@ -817,7 +817,7 @@ import MobileFilter from "./MobileFilter";
 
 export default {
   name: "Category",
-  component: { MobileFilter }
+  components: { MobileFilter }
 };
 </script>
 

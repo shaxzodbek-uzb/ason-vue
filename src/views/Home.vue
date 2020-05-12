@@ -23,56 +23,17 @@
       <div class="catalog-container">
         <h3 class="mb-35px">Каталог</h3>
         <div class="catalog-carousel owl-carousel">
-          <div class="item">
+          <div class="item" v-for="item in sub_categories" :key="item.name">
             <div class="cc-block">
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c1.jpg" alt="" />
-              </a>
-              <a href="#" class="cc-title">Брюки</a>
+              <router-link :to="{ name: 'Category' }" class="cc-image">
+                <img :src="item.image" alt="" />
+              </router-link>
+              <router-link :to="{ name: 'Category' }" class="cc-title">
+                {{ item.name }}
+              </router-link>
             </div>
             <!--cc-block-->
           </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c2.jpg" alt="" />
-              </a>
-              <a href="#" class="cc-title">Верхняя одежда</a>
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c3.jpg" alt="" />
-              </a>
-              <a href="#" class="cc-title">Джинсы</a>
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <a href="#" class="cc-title">Туфли</a>
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <a href="#" class="cc-title">Туфли</a>
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
         </div>
         <!--owl-carousel-->
       </div>
@@ -89,126 +50,32 @@
       <!--catalog-container-->
       <div class="block-container">
         <h3 class="mb-25px">Сникерсы</h3>
-        <a href="#" class="btn btn-white mb-35px"
-          >Посмотреть <i class="fa fa-long-arrow-right" aria-hidden="true"></i
-        ></a>
+        <a href="#" class="btn btn-white mb-35px">
+          Посмотреть <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </a>
         <div class="catalog-carousel owl-carousel">
           <div class="item">
             <div class="cc-block">
               <a href="#1" class="wish-icon"
                 ><i class="fa fa-heart-o" aria-hidden="true"></i
               ></a>
-              <a href="#" class="cc-image">
+              <router-link :to="{ name: 'Product' }" class="cc-image">
                 <img src="images/tmp/c4.jpg" alt="" />
-              </a>
+              </router-link>
               <div class="cc-content">
                 <div class="row">
                   <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
+                    <router-link :to="{ name: 'Product' }" class="cc-title">
+                      Zara
+                    </router-link>
+                    <div class="cc-category">
+                      <router-link :to="{ name: 'Product' }">
+                        Сникерсы
+                      </router-link>
+                    </div>
                   </div>
                   <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
+                    <div class="cc-price">204,951 €</div>
                   </div>
                 </div>
                 <!--row-->
@@ -237,114 +104,20 @@
               <a href="#1" class="wish-icon"
                 ><i class="fa fa-heart-o" aria-hidden="true"></i
               ></a>
-              <a href="#" class="cc-image">
+              <router-link :to="{ name: 'Product' }" class="cc-image">
                 <img src="images/tmp/c4.jpg" alt="" />
-              </a>
+              </router-link>
               <div class="cc-content">
                 <div class="row">
                   <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
+                    <router-link :to="{ name: 'Product' }" class="cc-title">
+                      Zara
+                    </router-link>
+                    <div class="cc-category">
+                      <router-link :to="{ name: 'Product' }"
+                        >Сникерсы</router-link
+                      >
+                    </div>
                   </div>
                   <div class="col-sm-5">
                     <div class="cc-price">204,95 €</div>
@@ -364,42 +137,18 @@
       <div class="block-container mb-50px">
         <h3 class="mb-25px">Bleib auf dem Laufen</h3>
         <div class="row">
-          <div class="col-sm-3 col-6">
+          <div
+            class="col-sm-3 col-6"
+            v-for="item in sub_categories_1"
+            :key="item.name"
+          >
             <div class="bc-block">
-              <a href="#" class="bc-img"
-                ><img src="images/tmp/bc1.jpg" alt=""
-              /></a>
-              <a href="#" class="bc-title">Брюки</a>
-            </div>
-            <!--bc-block-->
-          </div>
-          <!--col-sm-3-->
-          <div class="col-sm-3 col-6">
-            <div class="bc-block">
-              <a href="#" class="bc-img"
-                ><img src="images/tmp/bc2.jpg" alt=""
-              /></a>
-              <a href="#" class="bc-title">Верхняя одежда</a>
-            </div>
-            <!--bc-block-->
-          </div>
-          <!--col-sm-3-->
-          <div class="col-sm-3 col-6">
-            <div class="bc-block">
-              <a href="#" class="bc-img"
-                ><img src="images/tmp/bc3.jpg" alt=""
-              /></a>
-              <a href="#" class="bc-title">Джинсы</a>
-            </div>
-            <!--bc-block-->
-          </div>
-          <!--col-sm-3-->
-          <div class="col-sm-3 col-6">
-            <div class="bc-block">
-              <a href="#" class="bc-img"
-                ><img src="images/tmp/bc4.jpg" alt=""
-              /></a>
-              <a href="#" class="bc-title">Туфли</a>
+              <router-link :to="{ name: 'Category' }" class="bc-img">
+                <img :src="item.image" alt="" />
+              </router-link>
+              <router-link :to="{ name: 'Category' }" class="bc-title">
+                {{ item.name }}
+              </router-link>
             </div>
             <!--bc-block-->
           </div>
@@ -425,8 +174,8 @@
       <!--catalog-container-->
       <div class="block-container mb-65px">
         <h3>Платья</h3>
-        <a href="#" class="btn btn-white mb-35px"
-          >Посмотреть <i class="fa fa-long-arrow-right" aria-hidden="true"></i
+        <a href="#" class="btn btn-white mb-35px">
+          Посмотреть <i class="fa fa-long-arrow-right" aria-hidden="true"></i
         ></a>
         <div class="row">
           <div class="col-sm-4 col-6">
@@ -434,62 +183,20 @@
               <a href="#1" class="wish-icon"
                 ><i class="fa fa-heart-o" aria-hidden="true"></i
               ></a>
-              <a href="#" class="cc-image">
+              <router-link :to="{ name: 'Product' }" class="cc-image">
                 <img src="images/tmp/c4.jpg" alt="" />
-              </a>
+              </router-link>
               <div class="cc-content">
                 <div class="row">
                   <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <div class="col-sm-4 col-6">
-            <div class="cc-block">
-              <a href="#1" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <div class="col-sm-4 col-6">
-            <div class="cc-block">
-              <a href="#1" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
+                    <router-link :to="{ name: 'Product' }" class="cc-title">
+                      Zara
+                    </router-link>
+                    <div class="cc-category">
+                      <router-link :to="{ name: 'Product' }"
+                        >Сникерсы</router-link
+                      >
+                    </div>
                   </div>
                   <div class="col-sm-5">
                     <div class="cc-price">204,95 €</div>
@@ -516,14 +223,20 @@
               <a href="#1" class="wish-icon"
                 ><i class="fa fa-heart-o" aria-hidden="true"></i
               ></a>
-              <a href="#" class="cc-image">
+              <router-link :to="{ name: 'Product' }" class="cc-image">
                 <img src="images/tmp/c4.jpg" alt="" />
-              </a>
+              </router-link>
               <div class="cc-content">
                 <div class="row">
                   <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
+                    <router-link :to="{ name: 'Product' }" class="cc-title"
+                      >Zara</router-link
+                    >
+                    <div class="cc-category">
+                      <router-link :to="{ name: 'Product' }"
+                        >Сникерсы</router-link
+                      >
+                    </div>
                   </div>
                   <div class="col-sm-5">
                     <div class="cc-price">204,95 €</div>
@@ -541,89 +254,20 @@
               <a href="#" class="wish-icon"
                 ><i class="fa fa-heart-o" aria-hidden="true"></i
               ></a>
-              <a href="#" class="cc-image">
+              <router-link :to="{ name: 'Product' }" class="cc-image">
                 <img src="images/tmp/c4.jpg" alt="" />
-              </a>
+              </router-link>
               <div class="cc-content">
                 <div class="row">
                   <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="cc-price">204,95 €</div>
-                  </div>
-                </div>
-                <!--row-->
-              </div>
-              <!--cc-content-->
-            </div>
-            <!--cc-block-->
-          </div>
-          <!--item-->
-          <div class="item">
-            <div class="cc-block">
-              <a href="#" class="wish-icon"
-                ><i class="fa fa-heart-o" aria-hidden="true"></i
-              ></a>
-              <a href="#" class="cc-image">
-                <img src="images/tmp/c4.jpg" alt="" />
-              </a>
-              <div class="cc-content">
-                <div class="row">
-                  <div class="col-sm-7">
-                    <a href="#" class="cc-title">Zara</a>
-                    <div class="cc-category"><a href="#">Сникерсы</a></div>
+                    <router-link :to="{ name: 'Product' }" class="cc-title"
+                      >Zara</router-link
+                    >
+                    <div class="cc-category">
+                      <router-link :to="{ name: 'Product' }"
+                        >Сникерсы</router-link
+                      >
+                    </div>
                   </div>
                   <div class="col-sm-5">
                     <div class="cc-price">204,95 €</div>
@@ -738,61 +382,6 @@
             </div>
           </div>
         </div>
-        <div class="fpt-list mb-45px">
-          <h5>Top Marken</h5>
-          <div class="row">
-            <div class="col-sm-2">
-              <ul class="list-unstyled">
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-              </ul>
-            </div>
-            <div class="col-sm-2">
-              <ul class="list-unstyled">
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-              </ul>
-            </div>
-            <div class="col-sm-2">
-              <ul class="list-unstyled">
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-              </ul>
-            </div>
-            <div class="col-sm-2">
-              <ul class="list-unstyled">
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-              </ul>
-            </div>
-            <div class="col-sm-2">
-              <ul class="list-unstyled">
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-                <li><a href="#">Abercrombie & Fitch</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <!--container-->
@@ -803,6 +392,46 @@
 export default {
   name: "Home",
   components: {},
+  data: () => {
+    return {
+      sub_categories: [
+        {
+          name: "Брюки",
+          image: "images/tmp/c1.jpg"
+        },
+        {
+          name: "Верхняя одежда",
+          image: "images/tmp/c2.jpg"
+        },
+        {
+          name: "Джинсы",
+          image: "images/tmp/c3.jpg"
+        },
+        {
+          name: "Туфли",
+          image: "images/tmp/c4.jpg"
+        }
+      ],
+      sub_categories_1: [
+        {
+          name: "Брюки",
+          image: "images/tmp/bc1.jpg"
+        },
+        {
+          name: "Верхняя одежда",
+          image: "images/tmp/bc2.jpg"
+        },
+        {
+          name: "Джинсы",
+          image: "images/tmp/bc3.jpg"
+        },
+        {
+          name: "Туфли",
+          image: "images/tmp/bc4.jpg"
+        }
+      ]
+    };
+  },
   mounted() {
     this.$nextTick(() => {
       window.$(".top-carousel").owlCarousel({

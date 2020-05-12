@@ -7,9 +7,15 @@
       >
         <img class="fp-image" src="images/tmp/ft1.jpg" alt="" />
         <div class="fpt-top">
-          <a href="#" class="btn-transparent">DAMEN</a>
-          <a href="#" class="btn-transparent">HERREN</a>
-          <a href="#" class="btn-transparent">KINDER</a>
+          <router-link :to="{ name: 'Home' }" class="btn-transparent"
+            >DAMEN</router-link
+          >
+          <router-link :to="{ name: 'Home' }" class="btn-transparent"
+            >HERREN</router-link
+          >
+          <router-link :to="{ name: 'Home' }" class="btn-transparent"
+            >KINDER</router-link
+          >
         </div>
         <!--fpt-top-->
         <div class="fpt-center">
@@ -67,61 +73,6 @@
           Schaft, Stiefel im Cowboy Look mit Metallkappe oder Laced-up Boots mit
           Profilsohle.
         </p>
-      </div>
-      <div class="fpt-list mb-45px">
-        <h5>Top Marken</h5>
-        <div class="row">
-          <div class="col-sm-2">
-            <ul class="list-unstyled">
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-2">
-            <ul class="list-unstyled">
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-2">
-            <ul class="list-unstyled">
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-2">
-            <ul class="list-unstyled">
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-2">
-            <ul class="list-unstyled">
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-              <li><a href="#">Abercrombie & Fitch</a></li>
-            </ul>
-          </div>
-        </div>
       </div>
       <div class="fpt-list mb-45px">
         <h5>Top Marken</h5>

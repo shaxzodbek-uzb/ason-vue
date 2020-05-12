@@ -5,17 +5,17 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/first-page",
+    path: "/",
     name: "FirstPage",
     component: () => import("../views/FirstPage")
   },
   {
-    path: "/single",
-    name: "Single",
-    component: () => import("../views/Single")
+    path: "/product",
+    name: "Product",
+    component: () => import("../views/Product")
   },
   {
-    path: "/",
+    path: "/home",
     name: "Home",
     component: () => import("../views/Home")
   },
@@ -62,7 +62,10 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior(/* to, from, savedPosition*/) {
+    return { x: 0, y: 0 };
+  }
 });
 
 export default router;

@@ -7,7 +7,9 @@
             <div class="col-sm-4">
               <div class="header-help">
                 <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                <a href="#">Помощь и контакт</a>
+                <router-link :to="{ name: 'ContactUs' }">
+                  Помощь и контакт
+                </router-link>
               </div>
             </div>
             <!--col-sm-4-->
@@ -47,9 +49,15 @@
             <div class="col-sm-4">
               <div class="middle-list">
                 <ul class="list-unstyled">
-                  <li><a href="#">Damen</a></li>
-                  <li><a href="#">Herren</a></li>
-                  <li><a href="#">Kinder</a></li>
+                  <li>
+                    <router-link :to="{ name: 'Home' }">Damen</router-link>
+                  </li>
+                  <li>
+                    <router-link :to="{ name: 'Home' }">Herren</router-link>
+                  </li>
+                  <li>
+                    <router-link :to="{ name: 'Home' }">Kinder</router-link>
+                  </li>
                 </ul>
               </div>
               <!--middle-list-->
@@ -57,9 +65,9 @@
             <!--col-sm-4-->
             <div class="col-sm-4">
               <div class="logo">
-                <a href="#"
-                  ><img src="images/logo.jpg" alt="" class="img-fluid"
-                /></a>
+                <router-link :to="{ name: 'Home' }" class="mobile-logo">
+                  <img src="images/logo.jpg" alt="" class="img-fluid" />
+                </router-link>
               </div>
             </div>
             <!--col-sm-4-->
@@ -75,11 +83,11 @@
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                   <div class="w-text">Избранное</div>
                 </a>
-                <a href="#" class="cart-link">
+                <router-link :to="{ name: 'Cart' }" class="cart-link">
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                   <div class="w-text">Корзина</div>
                   <div class="cart-count">2</div>
-                </a>
+                </router-link>
               </div>
             </div>
             <!--col-sm-4-->
@@ -96,7 +104,7 @@
               <div class="header-nav">
                 <ul class="list-unstyled">
                   <li>
-                    <a href="#">Get the Look</a>
+                    <a href="#/category">Get the Look</a>
                     <div class="second-menu">
                       <div class="row">
                         <div class="col-sm-6">
@@ -104,42 +112,60 @@
                           <div class="row">
                             <div class="col-sm-4">
                               <ul class="list-unstyled">
-                                <li><a href="#">Adidas</a></li>
-                                <li><a href="#">Banana Republic</a></li>
-                                <li><a href="#">Baon</a></li>
-                                <li><a href="#">Befree</a></li>
-                                <li><a href="#">Betsy</a></li>
-                                <li><a href="#">Calvin Klein Jeans</a></li>
-                                <li><a href="#">Dorothy Perkins</a></li>
-                                <li><a href="#">GAP</a></li>
+                                <li><a href="#/category">Adidas</a></li>
+                                <li>
+                                  <a href="#/category">Banana Republic</a>
+                                </li>
+                                <li><a href="#/category">Baon</a></li>
+                                <li><a href="#/category">Befree</a></li>
+                                <li><a href="#/category">Betsy</a></li>
+                                <li>
+                                  <a href="#/category">Calvin Klein Jeans</a>
+                                </li>
+                                <li>
+                                  <a href="#/category">Dorothy Perkins</a>
+                                </li>
+                                <li><a href="#/category">GAP</a></li>
                               </ul>
                             </div>
                             <!--col-sm-4-->
                             <div class="col-sm-4">
                               <ul class="list-unstyled">
-                                <li><a href="#">Adidas</a></li>
-                                <li><a href="#">Banana Republic</a></li>
-                                <li><a href="#">Baon</a></li>
-                                <li><a href="#">Befree</a></li>
-                                <li><a href="#">Betsy</a></li>
-                                <li><a href="#">Calvin Klein Jeans</a></li>
-                                <li><a href="#">Dorothy Perkins</a></li>
-                                <li><a href="#">GAP</a></li>
+                                <li><a href="#/category">Adidas</a></li>
+                                <li>
+                                  <a href="#/category">Banana Republic</a>
+                                </li>
+                                <li><a href="#/category">Baon</a></li>
+                                <li><a href="#/category">Befree</a></li>
+                                <li><a href="#/category">Betsy</a></li>
+                                <li>
+                                  <a href="#/category">Calvin Klein Jeans</a>
+                                </li>
+                                <li>
+                                  <a href="#/category">Dorothy Perkins</a>
+                                </li>
+                                <li><a href="#/category">GAP</a></li>
                               </ul>
                             </div>
                             <!--col-sm-4-->
                             <div class="col-sm-4">
                               <ul class="list-unstyled">
-                                <li><a href="#">Adidas</a></li>
-                                <li><a href="#">Banana Republic</a></li>
-                                <li><a href="#">Baon</a></li>
-                                <li><a href="#">Befree</a></li>
-                                <li><a href="#">Betsy</a></li>
-                                <li><a href="#">Calvin Klein Jeans</a></li>
-                                <li><a href="#">Dorothy Perkins</a></li>
-                                <li><a href="#">GAP</a></li>
+                                <li><a href="#/category">Adidas</a></li>
+                                <li>
+                                  <a href="#/category">Banana Republic</a>
+                                </li>
+                                <li><a href="#/category">Baon</a></li>
+                                <li><a href="#/category">Befree</a></li>
+                                <li><a href="#/category">Betsy</a></li>
+                                <li>
+                                  <a href="#/category">Calvin Klein Jeans</a>
+                                </li>
+                                <li>
+                                  <a href="#/category">Dorothy Perkins</a>
+                                </li>
+                                <li><a href="#/category">GAP</a></li>
                               </ul>
-                              <a href="#" class="orange-link"
+                              <a href="#/category" class="orange-link"
                                 >все категории ...</a
                               >
                             </div>
@@ -150,18 +176,18 @@
                         <div class="col-sm-3">
                           <h6>Бренды</h6>
                           <ul class="list-unstyled">
-                            <li><a href="#">Adidas</a></li>
-                            <li><a href="#">Banana Republic</a></li>
-                            <li><a href="#">Baon</a></li>
-                            <li><a href="#">Befree</a></li>
-                            <li><a href="#">Betsy</a></li>
-                            <li><a href="#">Calvin Klein Jeans</a></li>
-                            <li><a href="#">Dorothy Perkins</a></li>
-                            <li><a href="#">GAP</a></li>
+                            <li><a href="#/category">Adidas</a></li>
+                            <li><a href="#/category">Banana Republic</a></li>
+                            <li><a href="#/category">Baon</a></li>
+                            <li><a href="#/category">Befree</a></li>
+                            <li><a href="#/category">Betsy</a></li>
+                            <li><a href="#/category">Calvin Klein Jeans</a></li>
+                            <li><a href="#/category">Dorothy Perkins</a></li>
+                            <li><a href="#/category">GAP</a></li>
                           </ul>
                         </div>
                         <div class="col-sm-3">
-                          <a href="#" class="right-menu-banner">
+                          <a href="#/category" class="right-menu-banner">
                             <img
                               src="images/menu1.jpg"
                               alt=""
@@ -180,7 +206,7 @@
                     <!--second-menu-->
                   </li>
                   <li>
-                    <a href="#">Neu</a>
+                    <a href="#/category">Neu</a>
                     <div class="second-menu">
                       <div class="row">
                         <div class="col-sm-6">
@@ -188,42 +214,60 @@
                           <div class="row">
                             <div class="col-sm-4">
                               <ul class="list-unstyled">
-                                <li><a href="#">Adidas</a></li>
-                                <li><a href="#">Banana Republic</a></li>
-                                <li><a href="#">Baon</a></li>
-                                <li><a href="#">Befree</a></li>
-                                <li><a href="#">Betsy</a></li>
-                                <li><a href="#">Calvin Klein Jeans</a></li>
-                                <li><a href="#">Dorothy Perkins</a></li>
-                                <li><a href="#">GAP</a></li>
+                                <li><a href="#/category">Adidas</a></li>
+                                <li>
+                                  <a href="#/category">Banana Republic</a>
+                                </li>
+                                <li><a href="#/category">Baon</a></li>
+                                <li><a href="#/category">Befree</a></li>
+                                <li><a href="#/category">Betsy</a></li>
+                                <li>
+                                  <a href="#/category">Calvin Klein Jeans</a>
+                                </li>
+                                <li>
+                                  <a href="#/category">Dorothy Perkins</a>
+                                </li>
+                                <li><a href="#/category">GAP</a></li>
                               </ul>
                             </div>
                             <!--col-sm-4-->
                             <div class="col-sm-4">
                               <ul class="list-unstyled">
-                                <li><a href="#">Adidas</a></li>
-                                <li><a href="#">Banana Republic</a></li>
-                                <li><a href="#">Baon</a></li>
-                                <li><a href="#">Befree</a></li>
-                                <li><a href="#">Betsy</a></li>
-                                <li><a href="#">Calvin Klein Jeans</a></li>
-                                <li><a href="#">Dorothy Perkins</a></li>
-                                <li><a href="#">GAP</a></li>
+                                <li><a href="#/category">Adidas</a></li>
+                                <li>
+                                  <a href="#/category">Banana Republic</a>
+                                </li>
+                                <li><a href="#/category">Baon</a></li>
+                                <li><a href="#/category">Befree</a></li>
+                                <li><a href="#/category">Betsy</a></li>
+                                <li>
+                                  <a href="#/category">Calvin Klein Jeans</a>
+                                </li>
+                                <li>
+                                  <a href="#/category">Dorothy Perkins</a>
+                                </li>
+                                <li><a href="#/category">GAP</a></li>
                               </ul>
                             </div>
                             <!--col-sm-4-->
                             <div class="col-sm-4">
                               <ul class="list-unstyled">
-                                <li><a href="#">Adidas</a></li>
-                                <li><a href="#">Banana Republic</a></li>
-                                <li><a href="#">Baon</a></li>
-                                <li><a href="#">Befree</a></li>
-                                <li><a href="#">Betsy</a></li>
-                                <li><a href="#">Calvin Klein Jeans</a></li>
-                                <li><a href="#">Dorothy Perkins</a></li>
-                                <li><a href="#">GAP</a></li>
+                                <li><a href="#/category">Adidas</a></li>
+                                <li>
+                                  <a href="#/category">Banana Republic</a>
+                                </li>
+                                <li><a href="#/category">Baon</a></li>
+                                <li><a href="#/category">Befree</a></li>
+                                <li><a href="#/category">Betsy</a></li>
+                                <li>
+                                  <a href="#/category">Calvin Klein Jeans</a>
+                                </li>
+                                <li>
+                                  <a href="#/category">Dorothy Perkins</a>
+                                </li>
+                                <li><a href="#/category">GAP</a></li>
                               </ul>
-                              <a href="#" class="orange-link"
+                              <a href="#/category" class="orange-link"
                                 >все категории ...</a
                               >
                             </div>
@@ -234,18 +278,18 @@
                         <div class="col-sm-3">
                           <h6>Бренды</h6>
                           <ul class="list-unstyled">
-                            <li><a href="#">Adidas</a></li>
-                            <li><a href="#">Banana Republic</a></li>
-                            <li><a href="#">Baon</a></li>
-                            <li><a href="#">Befree</a></li>
-                            <li><a href="#">Betsy</a></li>
-                            <li><a href="#">Calvin Klein Jeans</a></li>
-                            <li><a href="#">Dorothy Perkins</a></li>
-                            <li><a href="#">GAP</a></li>
+                            <li><a href="#/category">Adidas</a></li>
+                            <li><a href="#/category">Banana Republic</a></li>
+                            <li><a href="#/category">Baon</a></li>
+                            <li><a href="#/category">Befree</a></li>
+                            <li><a href="#/category">Betsy</a></li>
+                            <li><a href="#/category">Calvin Klein Jeans</a></li>
+                            <li><a href="#/category">Dorothy Perkins</a></li>
+                            <li><a href="#/category">GAP</a></li>
                           </ul>
                         </div>
                         <div class="col-sm-3">
-                          <a href="#" class="right-menu-banner">
+                          <a href="#/category" class="right-menu-banner">
                             <img
                               src="images/menu1.jpg"
                               alt=""
@@ -263,13 +307,13 @@
                     </div>
                     <!--second-menu-->
                   </li>
-                  <li><a href="#">Bekleidung</a></li>
-                  <li><a href="#">Schuhe</a></li>
-                  <li><a href="#">Sport</a></li>
-                  <li><a href="#">Accessoires </a></li>
-                  <li><a href="#">Beauty</a></li>
-                  <li><a href="#">Premium</a></li>
-                  <li><a href="#">Marken</a></li>
+                  <li><a href="#/category">Bekleidung</a></li>
+                  <li><a href="#/category">Schuhe</a></li>
+                  <li><a href="#/category">Sport</a></li>
+                  <li><a href="#/category">Accessoires </a></li>
+                  <li><a href="#/category">Beauty</a></li>
+                  <li><a href="#/category">Premium</a></li>
+                  <li><a href="#/category">Marken</a></li>
                 </ul>
               </div>
               <!--header-nav-->
@@ -310,9 +354,9 @@
               ></a>
             </div>
             <div class="col">
-              <a href="#" class="mobile-logo"
-                ><img src="images/logo.jpg" alt=""
-              /></a>
+              <router-link :to="{ name: 'Home' }" class="mobile-logo">
+                <img src="images/logo.jpg" alt="" />
+              </router-link>
             </div>
             <div class="col">
               <a href="#" class="heart-icon"
@@ -341,11 +385,20 @@
       <!--header-bottom-mobile-->
     </div>
     <!--d-md-none-->
+    <Login />
+    <Registration />
   </header>
   <!--header-->
 </template>
 <script>
+import Login from "./popup/Login.vue";
+import Registration from "./popup/Registration.vue";
+
 export default {
-  name: "Header"
+  name: "Header",
+  components: { Login, Registration },
+  mounted() {
+    window.$(".fancy").fancybox();
+  }
 };
 </script>

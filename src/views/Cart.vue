@@ -174,7 +174,9 @@
                 <!--row-->
               </div>
               <!--cpc-block-->
-              <a href="#" class="btn btn-orange w-100">Zur kasse</a>
+              <router-link :to="{ name: 'Order' }" class="btn btn-orange w-100">
+                Zur kasse
+              </router-link>
             </div>
             <!--shadow-container-->
           </div>

@@ -20,7 +20,9 @@
             <!--col-sm-4-->
             <div class="col-sm-5">
               <div class="footer-form">
-                <a href="#">Форма обратной связи</a>
+                <router-link :to="{ name: 'ContactUs' }">
+                  Форма обратной связи
+                </router-link>
                 <div class="ff-info">
                   свяжитесь с нами по контактной форме
                 </div>
