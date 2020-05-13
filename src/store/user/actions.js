@@ -7,13 +7,13 @@ export const actions = {
   login({ commit }, userInfo) {
     const { username, password } = userInfo;
     return new Promise((resolve, reject) => {
-      login({ username: username.trim(), password: password })
+      login({ email: username.trim(), password: password })
         .then(response => {
           const { data } = response;
-          commit("SET_AUTH_USER", data);
-          commit("AUTH_USER_TOKEN", data.token);
-          setToken(data.token);
-          resolve();
+          commit("IS_AUTH", true);
+          commit("USER_TOKEN", data.access_token);
+          setToken(data.access_token);
+          resolve(response);
         })
         .catch(error => {
           reject(error);
@@ -22,16 +22,16 @@ export const actions = {
   },
 
   // get user info
-  getInfo({ commit, state }) {
+  getInfo({ commit }) {
     return new Promise((resolve, reject) => {
-      getInfo(state.user.token)
+      getInfo()
         .then(response => {
           const { data } = response;
-
           if (!data) {
             reject("Verification failed, please Login again.");
           }
-          commit("SET_AUTH_USER", data);
+          commit("SET_USER", data.user);
+          commit("IS_AUTH", true);
           resolve(data);
         })
         .catch(error => {
@@ -41,17 +41,20 @@ export const actions = {
   },
 
   // user logout
-  logout({ commit, state }) {
+  logout({ commit }) {
     return new Promise((resolve, reject) => {
-      logout(state.token)
+      logout()
         .then(() => {
-          commit("AUTH_USER_TOKEN", "");
-          removeToken();
-          resetRouter();
           resolve();
         })
         .catch(error => {
           reject(error);
+        })
+        .then(() => {
+          commit("USER_TOKEN", "");
+          commit("IS_AUTH", false);
+          removeToken();
+          resetRouter();
         });
     });
   },
@@ -59,7 +62,7 @@ export const actions = {
   // remove token
   resetToken({ commit }) {
     return new Promise(resolve => {
-      commit("AUTH_USER_TOKEN", "");
+      commit("USER_TOKEN", "");
       removeToken();
       resolve();
     });

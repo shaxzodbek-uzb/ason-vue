@@ -10,8 +10,8 @@ export function login(data) {
 
 export function getInfo() {
   return request({
-    url: "/auth/user",
-    method: "get",
+    url: "/auth/me",
+    method: "post",
     params: { include: "Avatar" }
   });
 }
@@ -19,7 +19,7 @@ export function getInfo() {
 export function logout() {
   return request({
     url: "/auth/logout",
-    method: "get"
+    method: "post"
   });
 }
 

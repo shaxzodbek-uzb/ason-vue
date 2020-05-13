@@ -21,10 +21,22 @@
         <!--row-->
       </div>
       <!--pop-input-text-top-->
-      <input type="text" placeholder="E-mail" class="form-control" />
-      <input type="text" placeholder="Password" class="form-control" />
+      <input
+        type="text"
+        placeholder="E-mail"
+        class="form-control"
+        autocomplete="username email"
+        v-model="loginForm.username"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        class="form-control"
+        autocomplete="curent-password"
+        v-model="loginForm.password"
+      />
       <div class="popup-buttons">
-        <button class="btn btn-orange">Войти</button>
+        <button class="btn btn-orange" @click="handleLogin">Войти</button>
         <a href="#" class="pass-link">Passwort vergessen?</a>
       </div>
       <!--popup-buttons-->
@@ -58,9 +70,74 @@
 </template>
 
 <script>
+import { validUsername } from "@/utils/validate";
+import { mapActions } from "vuex";
 export default {
-  name: "Login"
+  name: "Login",
+  data() {
+    const validateUsername = (rule, value, callback) => {
+      if (!validUsername(value)) {
+        callback(new Error("Please enter the correct user name"));
+      } else {
+        callback();
+      }
+    };
+    const validatePassword = (rule, value, callback) => {
+      if (value.length < 6) {
+        callback(new Error("The password can not be less than 6 digits"));
+      } else {
+        callback();
+      }
+    };
+    return {
+      loginForm: {
+        username: "admin@ason.com",
+        password: "admin"
+      },
+      loginRules: {
+        username: [
+          { required: true, trigger: "blur", validator: validateUsername }
+        ],
+        password: [
+          { required: true, trigger: "blur", validator: validatePassword }
+        ]
+      },
+      loading: false,
+      passwordType: "password",
+      redirect: undefined
+    };
+  },
+  watch: {
+    $route: {
+      handler: function(route) {
+        this.redirect = route.query && route.query.redirect;
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    ...mapActions({ login: "user/login", getUserInfo: "user/getInfo" }),
+    handleLogin() {
+      // console.log('submit', this.$refs.loginForm.validate())
+      // this.$refs.loginForm.validate(valid => {
+      //   if (valid) {
+      this.loading = true;
+      this.login(this.loginForm)
+        .then(() => {
+          this.$router.push({ path: this.redirect || "/" });
+          this.loading = false;
+          this.$toaster.success("Success.");
+          this.getUserInfo();
+        })
+        .catch(() => {
+          this.loading = false;
+        });
+      // } else {
+      //   console.log('error submit!!')
+      //   return false
+      // }
+      // })
+    }
+  }
 };
 </script>
-
-<style></style>

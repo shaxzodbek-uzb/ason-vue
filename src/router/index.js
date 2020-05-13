@@ -94,15 +94,18 @@ function nextFactory(context, middleware, index) {
 
 router.beforeEach((to, from, next) => {
   let middleware = [];
-
-  for (const item of to.matched) {
-    if (item.meta.middleware) {
-      middleware = middleware.concat(
-        Array.isArray(item.meta.middleware)
-          ? item.meta.middleware
-          : [item.meta.middleware]
-      );
+  try {
+    for (const item of to.matched) {
+      if (item.meta.middleware) {
+        middleware = middleware.concat(
+          Array.isArray(item.meta.middleware)
+            ? item.meta.middleware
+            : [item.meta.middleware]
+        );
+      }
     }
+  } catch (error) {
+    console.log(error);
   }
   if (middleware.length > 0) {
     const context = {
@@ -112,10 +115,8 @@ router.beforeEach((to, from, next) => {
       to
     };
     const nextMiddleware = nextFactory(context, middleware, 1);
-
     return middleware[0]({ ...context, next: nextMiddleware });
   }
-
   return next();
 });
 

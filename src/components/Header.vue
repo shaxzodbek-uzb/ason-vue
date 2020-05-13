@@ -15,24 +15,21 @@
             <!--col-sm-4-->
             <div class="offset-sm-3 col-sm-5">
               <div class="header-right">
-                <div class="registration-container">
-                  <div class="register-b">
+                <div class="registration-container mx-0">
+                  <div class="register-b" v-show="!login">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <a href="#popup-register" class="fancy">Регистрация</a>
                   </div>
-                  <div>
+                  <div v-show="!login">
                     <i class="fa fa-sign-in" aria-hidden="true"></i>
                     <a href="#popoup" class="fancy">Логин</a>
                   </div>
+                  <div v-if="login" @click="logout()">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    <a>{{ user.name }}</a>
+                  </div>
                 </div>
                 <!--registration-container-->
-                <div class="language-container">
-                  <ul class="list-unstyled">
-                    <li><span>Ru</span></li>
-                    <li><a href="#">En</a></li>
-                  </ul>
-                </div>
-                <!--language-container-->
               </div>
               <!--header-right-->
             </div>
@@ -75,11 +72,15 @@
                     <li><a href="#">En</a></li>
                   </ul>
                 </div>
-                <a href="#" class="wish-link">
+                <a href="#" class="wish-link" v-if="login">
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                   <div class="w-text">Избранное</div>
                 </a>
-                <router-link :to="{ name: 'Cart' }" class="cart-link">
+                <router-link
+                  :to="{ name: 'Cart' }"
+                  class="cart-link"
+                  v-if="login"
+                >
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                   <div class="w-text">Корзина</div>
                   <div class="cart-count">2</div>
@@ -354,12 +355,12 @@
                 <img src="images/logo.jpg" alt="" />
               </router-link>
             </div>
-            <div class="col">
+            <div class="col" v-if="login">
               <a href="#" class="heart-icon"
                 ><i class="fa fa-heart-o" aria-hidden="true"></i
               ></a>
             </div>
-            <div class="col">
+            <div class="col" v-if="login">
               <router-link :to="{ name: 'Cart' }" class="cart-mobile">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               </router-link>
@@ -395,20 +396,30 @@ export default {
   name: "Header",
   components: { Login, Registration },
   computed: {
-    ...mapGetters({ main_categories: "category/getMain" })
+    ...mapGetters({
+      main_categories: "category/getMain",
+      login: "user/IS_AUTH",
+      user: "user/USER"
+    })
+  },
+  watch: {
+    login: {
+      handler: function(val) {
+        if (val) {
+          window.$(".fancybox-close").click();
+        }
+      },
+      immediate: true
+    }
   },
   mounted() {
     window.$(".fancy").fancybox();
-    this.index()
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.index().catch(err => {
+      console.log(err);
+    });
   },
   methods: {
-    ...mapActions({ index: "category/list" })
+    ...mapActions({ index: "category/list", logout: "user/logout" })
   }
 };
 </script>
