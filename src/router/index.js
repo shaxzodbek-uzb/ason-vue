@@ -16,7 +16,7 @@ export const constantRoutes = [
     component: () => import("../views/Product")
   },
   {
-    path: "/home",
+    path: "/home/:category_slug",
     name: "Home",
     component: () => import("../views/Home")
   },

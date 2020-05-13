@@ -23,13 +23,16 @@
       <div class="catalog-container">
         <h3 class="mb-35px">Каталог</h3>
         <div class="catalog-carousel owl-carousel">
-          <div class="item" v-for="item in sub_categories" :key="item.name">
+          <div class="item" v-for="item in page.categories_1" :key="item.name">
             <div class="cc-block">
               <router-link :to="{ name: 'Category' }" class="cc-image">
-                <img :src="item.image" alt="" />
+                <img
+                  :src="'http://admin.ason.test/storage/' + item.image"
+                  alt=""
+                />
               </router-link>
               <router-link :to="{ name: 'Category' }" class="cc-title">
-                {{ item.name }}
+                {{ item.title }}
               </router-link>
             </div>
             <!--cc-block-->
@@ -39,22 +42,29 @@
       </div>
       <!--catalog-container-->
       <div class="block-container mb-35px">
-        <h3 class="mb-25px">Пуховики и зимние куртки</h3>
-        <a href="#" class="btn btn-white mb-35px"
-          >Посмотреть <i class="fa fa-long-arrow-right" aria-hidden="true"></i
-        ></a>
-        <a href="#" class="big-image"
-          ><img src="images/tmp/p1.jpg" alt="" class="img-fluid"
-        /></a>
+        <h3 class="mb-25px">{{ page.banner_1.title }}</h3>
+        <a :href="page.banner_1.url" class="btn btn-white mb-35px">
+          Посмотреть <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a :href="page.banner_1.url" class="big-image">
+          <img
+            :src="'http://admin.ason.test/storage/' + page.banner_1.image"
+            class="img-fluid"
+          />
+        </a>
       </div>
       <!--catalog-container-->
       <div class="block-container">
-        <h3 class="mb-25px">Сникерсы</h3>
+        <h3 class="mb-25px">{{ page.category_1.title }}</h3>
         <a href="#" class="btn btn-white mb-35px">
           Посмотреть <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
         </a>
         <div class="catalog-carousel owl-carousel">
-          <div class="item">
+          <div
+            class="item"
+            v-for="item in page.category_1.products"
+            :key="item.id"
+          >
             <div class="cc-block">
               <a href="#1" class="wish-icon"
                 ><i class="fa fa-heart-o" aria-hidden="true"></i
@@ -389,6 +399,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Home",
   components: {},
@@ -432,8 +443,51 @@ export default {
       ]
     };
   },
+  computed: {
+    ...mapGetters({ page: "page/getHomePage" })
+  },
   mounted() {
-    this.$nextTick(() => {
+    // this.$nextTick(() => {
+    //   window.$(".top-carousel").owlCarousel({
+    //     animateOut: "fadeOut",
+    //     animateIn: "fadeIn",
+    //     items: 1,
+    //     smartSpeed: 800,
+    //     margin: 0,
+    //     nav: false,
+    //     dots: false,
+    //     autoplay: true,
+    //     loop: true
+    //   });
+    //   window.$(".catalog-carousel").owlCarousel({
+    //     items: 4,
+    //     smartSpeed: 800,
+    //     margin: 33,
+    //     nav: true,
+    //     navText: [
+    //       '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
+    //       '<i class="fa fa-chevron-right" aria-hidden="true"></i>'
+    //     ],
+    //     dots: false,
+    //     autoplay: false,
+    //     loop: true,
+    //     responsive: {
+    //       0: {
+    //         items: 2
+    //       },
+    //       768: {
+    //         items: 4
+    //       }
+    //     }
+    //   });
+    // });
+    this.loadPage().then(() => {
+      setTimeout(this.JQueryreload(), 1500);
+    });
+  },
+  methods: {
+    ...mapActions({ loadPage: "page/home" }),
+    JQueryreload() {
       window.$(".top-carousel").owlCarousel({
         animateOut: "fadeOut",
         animateIn: "fadeIn",
@@ -445,28 +499,28 @@ export default {
         autoplay: true,
         loop: true
       });
-    });
-    window.$(".catalog-carousel").owlCarousel({
-      items: 4,
-      smartSpeed: 800,
-      margin: 33,
-      nav: true,
-      navText: [
-        '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
-        '<i class="fa fa-chevron-right" aria-hidden="true"></i>'
-      ],
-      dots: false,
-      autoplay: false,
-      loop: true,
-      responsive: {
-        0: {
-          items: 2
-        },
-        768: {
-          items: 4
+      window.$(".catalog-carousel").owlCarousel({
+        items: 4,
+        smartSpeed: 800,
+        margin: 33,
+        nav: true,
+        navText: [
+          '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
+          '<i class="fa fa-chevron-right" aria-hidden="true"></i>'
+        ],
+        dots: false,
+        autoplay: false,
+        loop: true,
+        responsive: {
+          0: {
+            items: 2
+          },
+          768: {
+            items: 4
+          }
         }
-      }
-    });
+      });
+    }
   }
 };
 </script>

@@ -4,7 +4,9 @@ export const actions = {
     return new Promise((resolve, reject) => {
       index(query, true)
         .then(response => {
-          commit("SET_MAIN_CATEGORIES", response.data.categories.list);
+          if (query == undefined) {
+            commit("SET_MAIN_CATEGORIES", response.data.categories.list);
+          }
           resolve(response);
         })
         .catch(error => {

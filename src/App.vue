@@ -20,7 +20,7 @@ export default {
   mounted: function() {
     let token = getToken();
     if (token) {
-      this.getUserInfo(token)
+      this.getUserInfo()
         .then(() => {})
         .catch(() => {
           this.logout();

@@ -124,7 +124,9 @@ export default {
       this.loading = true;
       this.login(this.loginForm)
         .then(() => {
-          this.$router.push({ path: this.redirect || "/" });
+          this.$router.push({ path: this.redirect || "/" }).catch(err => {
+            console.log(err);
+          });
           this.loading = false;
           this.$toaster.success("Success.");
           this.getUserInfo();

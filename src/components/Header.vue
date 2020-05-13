@@ -47,7 +47,12 @@
               <div class="middle-list">
                 <ul class="list-unstyled">
                   <li v-for="item in main_categories" :key="item.id">
-                    <router-link :to="{ name: 'Home' }">
+                    <router-link
+                      :to="{
+                        name: 'Home',
+                        params: { category_slug: item.slug }
+                      }"
+                    >
                       {{ item.title }}
                     </router-link>
                   </li>
@@ -100,67 +105,52 @@
             <div class="col-sm-8">
               <div class="header-nav">
                 <ul class="list-unstyled">
-                  <li>
-                    <a href="#/category">Get the Look</a>
-                    <div class="second-menu">
+                  <li v-for="item in categories" :key="item.id">
+                    <a href="#/category">{{ item.title }}</a>
+                    <div class="second-menu" v-if="item.children">
                       <div class="row">
                         <div class="col-sm-6">
                           <h6>Категории</h6>
                           <div class="row">
                             <div class="col-sm-4">
                               <ul class="list-unstyled">
-                                <li><a href="#/category">Adidas</a></li>
-                                <li>
-                                  <a href="#/category">Banana Republic</a>
+                                <li
+                                  v-for="item in sliceCategoryies(
+                                    item.children.list,
+                                    1
+                                  )"
+                                  :key="item.id"
+                                >
+                                  <a href="#/category">{{ item.title }}</a>
                                 </li>
-                                <li><a href="#/category">Baon</a></li>
-                                <li><a href="#/category">Befree</a></li>
-                                <li><a href="#/category">Betsy</a></li>
-                                <li>
-                                  <a href="#/category">Calvin Klein Jeans</a>
-                                </li>
-                                <li>
-                                  <a href="#/category">Dorothy Perkins</a>
-                                </li>
-                                <li><a href="#/category">GAP</a></li>
                               </ul>
                             </div>
                             <!--col-sm-4-->
                             <div class="col-sm-4">
                               <ul class="list-unstyled">
-                                <li><a href="#/category">Adidas</a></li>
-                                <li>
-                                  <a href="#/category">Banana Republic</a>
+                                <li
+                                  v-for="item in sliceCategoryies(
+                                    item.children.list,
+                                    2
+                                  )"
+                                  :key="item.id"
+                                >
+                                  <a href="#/category">{{ item.title }}</a>
                                 </li>
-                                <li><a href="#/category">Baon</a></li>
-                                <li><a href="#/category">Befree</a></li>
-                                <li><a href="#/category">Betsy</a></li>
-                                <li>
-                                  <a href="#/category">Calvin Klein Jeans</a>
-                                </li>
-                                <li>
-                                  <a href="#/category">Dorothy Perkins</a>
-                                </li>
-                                <li><a href="#/category">GAP</a></li>
                               </ul>
                             </div>
                             <!--col-sm-4-->
                             <div class="col-sm-4">
                               <ul class="list-unstyled">
-                                <li><a href="#/category">Adidas</a></li>
-                                <li>
-                                  <a href="#/category">Banana Republic</a>
+                                <li
+                                  v-for="item in sliceCategoryies(
+                                    item.children.list,
+                                    3
+                                  )"
+                                  :key="item.id"
+                                >
+                                  <a href="#/category">{{ item.title }}</a>
                                 </li>
-                                <li><a href="#/category">Baon</a></li>
-                                <li><a href="#/category">Befree</a></li>
-                                <li><a href="#/category">Betsy</a></li>
-                                <li>
-                                  <a href="#/category">Calvin Klein Jeans</a>
-                                </li>
-                                <li>
-                                  <a href="#/category">Dorothy Perkins</a>
-                                </li>
-                                <li><a href="#/category">GAP</a></li>
                               </ul>
                               <a href="#/category" class="orange-link"
                                 >все категории ...</a
@@ -200,117 +190,7 @@
                       </div>
                       <!--row-->
                     </div>
-                    <!--second-menu-->
                   </li>
-                  <li>
-                    <a href="#/category">Neu</a>
-                    <div class="second-menu">
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <h6>Категории</h6>
-                          <div class="row">
-                            <div class="col-sm-4">
-                              <ul class="list-unstyled">
-                                <li><a href="#/category">Adidas</a></li>
-                                <li>
-                                  <a href="#/category">Banana Republic</a>
-                                </li>
-                                <li><a href="#/category">Baon</a></li>
-                                <li><a href="#/category">Befree</a></li>
-                                <li><a href="#/category">Betsy</a></li>
-                                <li>
-                                  <a href="#/category">Calvin Klein Jeans</a>
-                                </li>
-                                <li>
-                                  <a href="#/category">Dorothy Perkins</a>
-                                </li>
-                                <li><a href="#/category">GAP</a></li>
-                              </ul>
-                            </div>
-                            <!--col-sm-4-->
-                            <div class="col-sm-4">
-                              <ul class="list-unstyled">
-                                <li><a href="#/category">Adidas</a></li>
-                                <li>
-                                  <a href="#/category">Banana Republic</a>
-                                </li>
-                                <li><a href="#/category">Baon</a></li>
-                                <li><a href="#/category">Befree</a></li>
-                                <li><a href="#/category">Betsy</a></li>
-                                <li>
-                                  <a href="#/category">Calvin Klein Jeans</a>
-                                </li>
-                                <li>
-                                  <a href="#/category">Dorothy Perkins</a>
-                                </li>
-                                <li><a href="#/category">GAP</a></li>
-                              </ul>
-                            </div>
-                            <!--col-sm-4-->
-                            <div class="col-sm-4">
-                              <ul class="list-unstyled">
-                                <li><a href="#/category">Adidas</a></li>
-                                <li>
-                                  <a href="#/category">Banana Republic</a>
-                                </li>
-                                <li><a href="#/category">Baon</a></li>
-                                <li><a href="#/category">Befree</a></li>
-                                <li><a href="#/category">Betsy</a></li>
-                                <li>
-                                  <a href="#/category">Calvin Klein Jeans</a>
-                                </li>
-                                <li>
-                                  <a href="#/category">Dorothy Perkins</a>
-                                </li>
-                                <li><a href="#/category">GAP</a></li>
-                              </ul>
-                              <a href="#/category" class="orange-link"
-                                >все категории ...</a
-                              >
-                            </div>
-                            <!--col-sm-4-->
-                          </div>
-                          <!--row-->
-                        </div>
-                        <div class="col-sm-3">
-                          <h6>Бренды</h6>
-                          <ul class="list-unstyled">
-                            <li><a href="#/category">Adidas</a></li>
-                            <li><a href="#/category">Banana Republic</a></li>
-                            <li><a href="#/category">Baon</a></li>
-                            <li><a href="#/category">Befree</a></li>
-                            <li><a href="#/category">Betsy</a></li>
-                            <li><a href="#/category">Calvin Klein Jeans</a></li>
-                            <li><a href="#/category">Dorothy Perkins</a></li>
-                            <li><a href="#/category">GAP</a></li>
-                          </ul>
-                        </div>
-                        <div class="col-sm-3">
-                          <a href="#/category" class="right-menu-banner">
-                            <img
-                              src="images/menu1.jpg"
-                              alt=""
-                              class="img-fluid mb-20px"
-                            />
-                            <div class="rmb-text text-center">
-                              <div class="rmb-title">Скидки до 50%</div>
-                              <p>по промокоду на обувь</p>
-                            </div>
-                          </a>
-                        </div>
-                        <!--col-sm-3-->
-                      </div>
-                      <!--row-->
-                    </div>
-                    <!--second-menu-->
-                  </li>
-                  <li><a href="#/category">Bekleidung</a></li>
-                  <li><a href="#/category">Schuhe</a></li>
-                  <li><a href="#/category">Sport</a></li>
-                  <li><a href="#/category">Accessoires </a></li>
-                  <li><a href="#/category">Beauty</a></li>
-                  <li><a href="#/category">Premium</a></li>
-                  <li><a href="#/category">Marken</a></li>
                 </ul>
               </div>
               <!--header-nav-->
@@ -374,7 +254,10 @@
         <div class="container">
           <ul class="row">
             <li class="col" v-for="item in main_categories" :key="item.id">
-              <router-link :to="{ name: 'Home' }">{{ item.name }}</router-link>
+              <router-link
+                :to="{ name: 'Home', params: { category_slug: item.slug } }"
+                >{{ item.name }}</router-link
+              >
             </li>
           </ul>
         </div>
@@ -406,20 +289,68 @@ export default {
     login: {
       handler: function(val) {
         if (val) {
-          window.$(".fancybox-close").click();
+          this.setupJQuery();
+        }
+      },
+      immediate: true
+    },
+
+    $route: {
+      handler: function(route) {
+        if (route.params.category_slug) {
+          let query = {
+            parent: this.$route.params.category_slug,
+            with_child: true
+          };
+          this.categoryList(query)
+            .then(res => {
+              this.categories = res.data.categories.list;
+            })
+            .catch(err => {
+              console.log(err);
+            });
+          this.setupJQuery();
         }
       },
       immediate: true
     }
   },
+  data() {
+    return {
+      categories: []
+    };
+  },
   mounted() {
-    window.$(".fancy").fancybox();
-    this.index().catch(err => {
+    this.setupJQuery();
+    this.categoryList().catch(err => {
       console.log(err);
     });
   },
   methods: {
-    ...mapActions({ index: "category/list", logout: "user/logout" })
+    ...mapActions({ categoryList: "category/list", logout: "user/logout" }),
+    setupJQuery() {
+      setTimeout(function() {
+        window.$(".fancy").fancybox();
+        window.$(".fancybox-close").click();
+        window.$(".header-nav ul li").on({
+          mouseenter: function() {
+            window
+              .$(this)
+              .find(".second-menu")
+              .slideDown(200);
+          },
+          mouseleave: function() {
+            window
+              .$(this)
+              .find(".second-menu")
+              .slideUp(100);
+          }
+        });
+      }, 2000);
+    },
+    sliceCategoryies(list, count) {
+      return list ? list.slice((count - 1) * 8, count * 8 - 1) : [];
+    }
   }
 };
 </script>

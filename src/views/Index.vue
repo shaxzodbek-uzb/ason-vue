@@ -8,7 +8,7 @@
         <img class="fp-image" src="images/tmp/ft1.jpg" alt="" />
         <div class="fpt-top">
           <router-link
-            :to="{ name: 'Home' }"
+            :to="{ name: 'Home', params: { category_slug: item.slug } }"
             class="btn-transparent"
             v-for="item in main_categories"
             :key="item.id"

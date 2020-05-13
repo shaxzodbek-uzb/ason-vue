@@ -14,18 +14,7 @@ $(".fmc-close").click(function() {
 $(".fmc-close-main").click(function() {
   $(".filter-mobile-container").slideUp("slow");
 });
-$(".header-nav ul li").on({
-  mouseenter: function() {
-    $(this)
-      .find(".second-menu")
-      .slideDown(200);
-  },
-  mouseleave: function() {
-    $(this)
-      .find(".second-menu")
-      .slideUp(100);
-  }
-});
+
 $(".fancy").fancybox();
 $(".large-block").zoom();
 $(document).on("click.bs.dropdown.data-api", ".noclose", function(e) {
