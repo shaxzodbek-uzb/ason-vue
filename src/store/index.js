@@ -1,13 +1,15 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import category from "./category";
+import category from "./category/";
+import user from "./user/";
 
 import getters from "./getters";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    category
+    category,
+    user
   },
   getters
 });

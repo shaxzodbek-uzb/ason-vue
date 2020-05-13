@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 
-const TokenKey = "askdoctor_web_token";
+const TokenKey = "ason_web_token";
 
 export function getToken() {
   return Cookies.get(TokenKey);
